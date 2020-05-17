@@ -7,24 +7,24 @@ class App extends Component {
 
   async componentWillMount() {
     // Load Web3
-    let web3 = new Web3('https://mainnet.infura.io/v3/953247d0c42b419aa3416810d625cc8c')
+    let web3 = new Web3('https://mainnet.infura.io/v3/44da3cd0fd9040d5bd97308332132150')
 
-    // Fetch latest block
+    // Obtener ultimo block
     let latestBlock = await web3.eth.getBlock('latest')
     console.log('latest block', latestBlock)
     this.setState({
       blockNumber: latestBlock.number,
       difficulty: latestBlock.difficulty
     })
-
-    // Fetch Gas price
+    
+    // Obtener precio del Gasto 
     let gasPrice = await web3.eth.getGasPrice()
     console.log('gasPrice', gasPrice)
     this.setState({
       gasPrice: gasPrice
     })
 
-    // Fetch latest 10 blocks
+    // Obtener ultimos 10 bloques
     let block
     let latestBlocks = []
     for (let i = 0; i < 10; i++) {
@@ -54,11 +54,11 @@ class App extends Component {
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
           <a
             className="navbar-brand col-sm-3 col-md-2 mr-0"
-            href="http://www.dappuniversity.com/bootcamp"
+            href="https://www.facebook.com/joel.zepeda.353"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Dapp University
+            Joel Zepeda BlockChain
           </a>
         </nav>
         <div className="container-fluid mt-5">
@@ -69,19 +69,19 @@ class App extends Component {
                 <div className="row">
                   <div className="col-4">
                     <div className="bg-light pt-4 pb-3 m-1">
-                      <h5>Latest Block</h5>
+                      <h5>Ultimo Bloque</h5>
                       <p>{this.state.blockNumber}</p>
                     </div>
                   </div>
                   <div className="col-4">
                     <div className="bg-light pt-4 pb-3 m-1">
-                      <h5>Difficulty</h5>
+                      <h5>Dificultad</h5>
                       <p>{this.state.difficulty}</p>
                     </div>
                   </div>
                   <div className="col-4">
                     <div className="bg-light pt-4 pb-3 m-1">
-                      <h5>Gas Price</h5>
+                      <h5>Precio del Gasto</h5>
                       <p>{this.state.gasPrice}</p>
                     </div>
                   </div>
@@ -101,8 +101,8 @@ class App extends Component {
                             <tr>
                               <th scope="col">#</th>
                               <th scope="col">Hash</th>
-                              <th scope="col">Miner</th>
-                              <th scope="col">Timestamp</th>
+                              <th scope="col">Minero</th>
+                              <th scope="col">Tiempo</th>
                             </tr>
                           </thead>
                           <tbody>
